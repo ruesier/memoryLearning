@@ -1,2 +1,6 @@
 # memoryLearning
 machine learning golang library using the imaginary parts of complex numbers to represent the memory of a model.
+
+This library is to be used on types of data that have a natural ordering. An example ordering would be ordering events temporally. Each data point would be represented as a vector (in golang a slice) of float64. An initial transformation of the data would generate a configured number of data points. These data points would be combined with a vector of values of the same size. This combination results in a vector of complex numbers. The real component comes from the input data and the imaginary part comes from the internal state of the model. After a nueral network tranforms the complex vector, the output vector comes from a final standard nueral network layer on just the real part of the complex vector. The imaginary component is saved to be used on the next input data.
+
+The imaginary data is used to act as a kind of memory in the model. This does mean that training the model will require the data to be presented in a complete sequence instead of a random sampling so that the internal memory can be correctly trained. 
